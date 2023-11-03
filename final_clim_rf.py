@@ -157,4 +157,4 @@ X_rs = np.hstack((X_rs, scaler1))
 lst = ["PS", "TS", "T2M", "QV2M", "RH2M", "WS2M", "WS10M", "GWETTOP", "T2M_MAX", "T2M_MIN", "GWETPROF", "GWETROOT", "PRECTOTCORR", "ALLSKY_SRF_ALB", "PRECTOTCORR_SUM", "ALLSKY_SFC_SW_DWN", "ALLSKY_SFC_PAR_TOT", "CLRSKY_SFC_PAR_TOT"]
 Y_rs = model.predict(X_rs)
 prd_df[lst] = Y_rs
-prd_df.to_csv('Future Climate XGB.csv', index=False)
+prd_df.to_csv('Future Climate RF.csv', index=False)
