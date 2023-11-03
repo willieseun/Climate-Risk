@@ -30,7 +30,7 @@ quantile_transformer = QuantileTransformer(output_distribution='uniform')
 normalizer = Normalizer()
 
 # Read csv file
-datadf = pd.read_csv('C:\\Users\\willi\\OneDrive\\Documents\\Climate Research\\Data Estimation\\Best Clim\\Final Data Clean.csv')
+datadf = pd.read_csv('Final Data Clean.csv')
 soildf = pd.read_csv('Soil_data.csv')
 #soildf = soildf.drop(columns=["state"])
 df = pd.merge(datadf, soildf, on=['cfips'])
@@ -124,7 +124,6 @@ y_pred_list = []
 targets_list = []
 
 
-#resume(model, "C:\\Users\\willi\\Desktop\\Climate Research\\Data Estimation\\lstm_best_model_clean.pth")
 for epoch in range(n_epochs):
 	break
 	model.train()
@@ -177,12 +176,12 @@ for epoch in range(n_epochs):
 	if loss < best_loss:
 		best_loss = loss
 		best_epoch = epoch
-		checkpoint(model, "C:\\Users\\willi\\Desktop\\Climate Research\\Data Estimation\\lstm_best_model_clean_prt.pth")
+		checkpoint(model, "lstm_best_model_clean_prt.pth")
 	elif epoch - best_epoch > early_stop_thresh:
 		print("Early stopped training at epoch %d" % epoch)
 		break  # terminate the training loop
 
-resume(model, "C:\\Users\\willi\\Desktop\\Climate Research\\Data Estimation\\lstm_best_model_clean_prt.pth")
+resume(model, "lstm_best_model_clean_prt.pth")
 print(model)
 
 y_pred = model(X_test.to(device))
@@ -202,7 +201,7 @@ print('R squared error:', r2s)
 
 # Read csv file
 prd_df = pd.DataFrame()
-datadf = pd.read_csv('C:\\Users\\willi\\OneDrive\\Documents\\Climate Research\\Data Estimation\\Best Clim\\Future Climate CNN_N.csv')
+datadf = pd.read_csv('Future Climate CNN_N.csv')
 datadf = datadf.dropna()
 soildf = pd.read_csv('Soil_data.csv')
 datadf = pd.merge(datadf, soildf, on=['cfips'])
