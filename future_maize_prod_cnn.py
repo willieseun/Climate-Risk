@@ -225,13 +225,12 @@ for epoch in range(n_epochs):
 	if loss < best_loss:
 		best_loss = loss
 		best_epoch = epoch
-		checkpoint(model, "C:\\Users\\willi\\Desktop\\Climate Research\\Data Estimation\\future_cnn_best_model_nw.pth")
+		checkpoint(model, "clim_cnn_best_model_best_path.pth")
 	elif epoch - best_epoch > early_stop_thresh:
 		print("Early stopped training at epoch %d" % epoch)
 		break  # terminate the training loop
 
-resume(model, "C:\\Users\\willi\\Desktop\\Climate Research\\Data Estimation\\future_cnn_best_model_nw.pth")
-#resume(model, "C:\\Users\\willi\\OneDrive\\Documents\\Climate Research\\Data Estimation\\Best Clim\\future_lstm_best_model_prd.pth")
+resume(model, "clim_cnn_best_model_best_path.pth")
 print(model)
 
 y_pred = model(X_test.to(device))
