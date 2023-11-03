@@ -58,7 +58,7 @@ X = np.hstack((X, scaler))
 print(scaler.shape)
 print(y.shape)
 X_train, X_test, Y_train, Y_test = train_test_split(X.astype(np.float32), y, test_size=0.2, random_state=42)
-model = MultiOutputRegressor(XGBRegressor())
+model = MultiOutputRegressor(RandomForestRegressor(n_estimators=100, random_state=42))
 model.fit(X_train, Y_train)
 
 y_pred = model.predict(X_test)
