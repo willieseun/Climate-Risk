@@ -136,7 +136,7 @@ class CNN(torch.nn.Module):
 		self.pool = nn.MaxPool2d(2, 2)
 
 		# Fully connected layers
-		self.fc1 = nn.Linear(1472, 148)
+		self.fc1 = nn.Linear(288, 148)
 		self.fc2 = nn.Linear(148, 2)
 		self.softplus = Softplus()
 
